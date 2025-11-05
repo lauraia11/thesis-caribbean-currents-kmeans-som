@@ -22,8 +22,6 @@ function [CI,K, centroids]=kmeans_ci(X,stand,prop,nclus,nsim);
 %
 % ref. Michelangeli et al., JAS, 1995 (1230-1246)
 %
-% Vincent Moron
-% June 2006
  
 if ~isempty(stand);
     X=stan(X,stand);

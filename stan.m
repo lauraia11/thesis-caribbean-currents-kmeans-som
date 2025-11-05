@@ -16,8 +16,7 @@ function [x]=stan(y,opt,missing);
 % Output
 % 'x' : matrix of standardized data. The missing data are coded into NaN.
 %
-% Vincent Moron
-% March 1996
+
 
 if nargin==2;
     missing=[NaN];
@@ -35,3 +34,4 @@ if strcmp(opt,'m')
 else
 	x=(y-my)./sty;
 end;
+

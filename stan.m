@@ -1,23 +1,5 @@
 function [x]=stan(y,opt,missing);
 
-% [x]=stan(y,opt,missing);
-%
-% This function standardizes the columns of an input matrix to zero mean
-% and eventually unit variance. The missing values are not filled. 
-% Use nanstan.m if you want to replace missing values by the long-term mean.
-%
-% Input
-% 'y' : matrix of real number to be standardized
-% 'opt' : character string ='m' (output data are normalized to zero mean)
-% and ='s' (output data are standardized to zero mean and unit variance). 
-% 'missing' : scalar defining the missing value (if missing = NaN, it is
-% not necessary to define missing).
-% 
-% Output
-% 'x' : matrix of standardized data. The missing data are coded into NaN.
-%
-
-
 if nargin==2;
     missing=[NaN];
 else
@@ -34,4 +16,5 @@ if strcmp(opt,'m')
 else
 	x=(y-my)./sty;
 end;
+
 

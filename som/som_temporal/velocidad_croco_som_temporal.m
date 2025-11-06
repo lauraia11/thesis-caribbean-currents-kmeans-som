@@ -60,11 +60,9 @@ tiene_nan = any(isnan(M(:)));
 disp(['M contiene NaNs: ', num2str(tiene_nan)]);
  sD = som_data_struct(M); 
  sD = som_normalize(sD,'var');
- rows=3;
- columns=1;
+rows=3;
+columns=1;
  
-rng(1); % Fijar la semilla aleatoria para reproducibilidad OJOMUY IMPORTANTE
-
 sM = som_randinit(sD,'msize',[columns rows]);
 sM=som_impbatch(sM,sD,'msize',[columns rows],'tracking',3,'trainlen',10,'radius',[10 0.1],'lattice','hexa','shape','sheet','neigh','gaussian');
 sD = som_denormalize(sD);
@@ -103,5 +101,6 @@ mapa_2d = flipud(mapa_2d);
 R = georasterref('RasterSize', size(mapa_2d), ...
                  'LatitudeLimits', [min(double(vlat)), max(double(vlat))], ...
                  'LongitudeLimits', [min(double(vlon)), max(double(vlon))]);
+
 
 geotiffwrite('mapa_resultado_tiff.tif', mapa_2d, R);

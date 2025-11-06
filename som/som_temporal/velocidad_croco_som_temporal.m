@@ -62,9 +62,9 @@ disp(['M contiene NaNs: ', num2str(tiene_nan)]);
  sD = som_normalize(sD,'var');
 rows=3;
 columns=1;
- 
 sM = som_randinit(sD,'msize',[columns rows]);
-sM=som_impbatch(sM,sD,'msize',[columns rows],'tracking',3,'trainlen',10,'radius',[10 0.1],'lattice','hexa','shape','sheet','neigh','gaussian');
+sM=som_impbatch(sM,sD,'msize',[columns rows],'tracking',3 ...
+    'trainlen',10,'radius',[10 0.1],'lattice','hexa','shape','sheet','neigh','gaussian');
 sD = som_denormalize(sD);
 sM = som_denormalize(sM);
 [bmus,qerrs] = som_bmus(sM,sD,1);
@@ -104,3 +104,4 @@ R = georasterref('RasterSize', size(mapa_2d), ...
 
 
 geotiffwrite('mapa_resultado_tiff.tif', mapa_2d, R);
+
